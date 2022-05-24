@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping("/book")
-@SecurityRequirement(name = "BookController")
+@SecurityRequirement(name = "BookController") //for swagger
 public class BookController {
 
     private  final BookService bookService;
