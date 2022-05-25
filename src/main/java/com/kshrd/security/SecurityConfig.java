@@ -35,15 +35,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
 //                .formLogin().and().logout().and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/", "/book")
+                .antMatchers(HttpMethod.GET,"/", "/swagger-ui/**")
                 .permitAll()
                 .antMatchers(HttpMethod.POST, "/auth/signup")
                 .permitAll()
                 .antMatchers(HttpMethod.POST, "/auth/signin")
                 .permitAll()
-                .antMatchers( "/book/**")
+                .antMatchers( "/book")
                 .hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                .antMatchers( "/swagger-ui/**")
+                .antMatchers( "/book/**")
                 .hasAnyRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/author")
                 .hasAnyAuthority("ROLE_USER")
@@ -71,9 +71,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder);
     }
 
+    //White list
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/v3/api-docs/**");
+        web.ignoring().antMatchers("/v3/api-docs/**",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**");
     }
 }
 //.hasAnyRole("USER") => hasAnyAuthority("ROLE_USER")

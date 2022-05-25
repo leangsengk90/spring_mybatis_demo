@@ -18,7 +18,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //		license = @License(name = "TERM & CONDITION"),
 		version = "1.0"
 ))
-@SecurityScheme(name = "BookController", scheme = "basic", type = SecuritySchemeType.HTTP, in = SecuritySchemeIn.HEADER)
+//@SecurityScheme(name = "BookController", scheme = "basic", type = SecuritySchemeType.HTTP, in = SecuritySchemeIn.HEADER)
+@SecurityScheme(name = "BookController", scheme = "bearer", type = SecuritySchemeType.HTTP, in = SecuritySchemeIn.HEADER)
 
 public class MybatisdemoApplication {
 

@@ -2,6 +2,7 @@ package com.kshrd.service.serviceimp;
 
 import com.kshrd.model.AppUser;
 import com.kshrd.payload.request.AppUserReq;
+import com.kshrd.payload.response.AppUserSignUpRes;
 import com.kshrd.repository.AppUserRepository;
 import com.kshrd.service.AppUserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,8 +32,8 @@ public class AppUserServiceImp implements AppUserService {
     }
 
     @Override
-    public AppUser addNewUser(AppUserReq userReq) {
-        AppUser appUser = new AppUser();
+    public AppUserSignUpRes addNewUser(AppUserReq userReq) {
+        AppUserSignUpRes appUser = new AppUserSignUpRes();
         String encode = passwordEncoder.encode(userReq.getPassword());
         userReq.setPassword(encode);
         appUser = appUserRepository.addNewUser(userReq);

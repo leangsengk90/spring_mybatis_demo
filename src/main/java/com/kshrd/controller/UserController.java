@@ -15,12 +15,12 @@ public class UserController {
         this.appUserService = appUserService;
     }
 
-    @PostMapping("/signup")
-    public AppUser addNewUser(@RequestBody AppUserReq userReq){
-        AppUser appUser = new AppUser();
-        appUser = appUserService.addNewUser(userReq);
-        return appUser;
-    }
+//    @PostMapping("/signup")
+//    public AppUser addNewUser(@RequestBody AppUserReq userReq){
+//        AppUser appUser = new AppUser();
+//        appUser = appUserService.addNewUser(userReq);
+//        return appUser;
+//    }
 
 //    @GetMapping("/signin")
 //    public AppUser signIn(@RequestBody AppUserSigninReq signInReq){

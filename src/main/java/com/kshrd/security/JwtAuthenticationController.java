@@ -1,7 +1,10 @@
 package com.kshrd.security;
 
 
+import com.kshrd.model.AppUser;
+import com.kshrd.payload.request.AppUserReq;
 import com.kshrd.payload.request.JwtReq;
+import com.kshrd.payload.response.AppUserSignUpRes;
 import com.kshrd.payload.response.JwtRes;
 import com.kshrd.service.AppUserService;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +13,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -43,6 +42,14 @@ public class JwtAuthenticationController {
 
         return ResponseEntity.ok(new JwtRes(token));
     }
+
+    @PostMapping("/auth/signup")
+    public AppUserSignUpRes addNewUser(@RequestBody AppUserReq userReq){
+        AppUserSignUpRes appUser = new AppUserSignUpRes();
+        appUser = userDetailsService.addNewUser(userReq);
+        return appUser;
+    }
+
 
     private void authenticate(String username, String password) throws Exception {
         try {

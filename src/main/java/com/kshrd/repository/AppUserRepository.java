@@ -3,6 +3,7 @@ package com.kshrd.repository;
 import com.kshrd.model.AppUser;
 import com.kshrd.model.Role;
 import com.kshrd.payload.request.AppUserReq;
+import com.kshrd.payload.response.AppUserSignUpRes;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -10,11 +11,17 @@ import java.util.List;
 @Mapper
 public interface AppUserRepository {
 
+//    @Select("INSERT INTO app_user(name, email, password) " +
+//            "VALUES(#{user.name}, #{user.email}, #{user.password}) RETURNING *")
+//    @Result(property = "isEnabled", column = "is_enabled")
+//    @Result(property = "isLocked", column = "is_locked")
+//    AppUser addNewUser(@Param("user") AppUserReq userReq);
+
     @Select("INSERT INTO app_user(name, email, password) " +
             "VALUES(#{user.name}, #{user.email}, #{user.password}) RETURNING *")
     @Result(property = "isEnabled", column = "is_enabled")
     @Result(property = "isLocked", column = "is_locked")
-    AppUser addNewUser(@Param("user") AppUserReq userReq);
+    AppUserSignUpRes addNewUser(@Param("user") AppUserReq userReq);
 
     @Select("SELECT *, id as user_id FROM app_user WHERE email = #{email}")
     @Result(property = "isEnabled", column = "is_enabled")
