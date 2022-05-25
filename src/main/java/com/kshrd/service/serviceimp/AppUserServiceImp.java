@@ -26,7 +26,8 @@ public class AppUserServiceImp implements AppUserService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         AppUser appUser = appUserRepository.getUserByEmail(email);
         System.out.println("LOAD_USER:"+appUser);
-        return appUser;
+        return new org.springframework.security.core.userdetails.User(appUser.getUsername(), appUser.getPassword(),
+                appUser.getAuthorities());
     }
 
     @Override
