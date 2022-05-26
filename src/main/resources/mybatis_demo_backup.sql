@@ -26,7 +26,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."app_user_id_seq" OWNER TO "postgres";
+ALTER SEQUENCE "public"."app_user_id_seq" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Sequence structure for author_id_seq
@@ -38,7 +38,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."author_id_seq" OWNER TO "postgres";
+ALTER SEQUENCE "public"."author_id_seq" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Sequence structure for book_id_seq
@@ -50,7 +50,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."book_id_seq" OWNER TO "postgres";
+ALTER SEQUENCE "public"."book_id_seq" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Sequence structure for role_id_seq
@@ -62,7 +62,7 @@ MINVALUE  1
 MAXVALUE 2147483647
 START 1
 CACHE 1;
-ALTER SEQUENCE "public"."role_id_seq" OWNER TO "postgres";
+ALTER SEQUENCE "public"."role_id_seq" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Table structure for app_user
@@ -83,7 +83,7 @@ CACHE 1
   "is_locked" bool
 )
 ;
-ALTER TABLE "public"."app_user" OWNER TO "postgres";
+ALTER TABLE "public"."app_user" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Records of app_user
@@ -122,7 +122,7 @@ CACHE 1
   "name" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
-ALTER TABLE "public"."author" OWNER TO "postgres";
+ALTER TABLE "public"."author" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Records of author
@@ -153,7 +153,7 @@ CACHE 1
   "author_id" int4
 )
 ;
-ALTER TABLE "public"."book" OWNER TO "postgres";
+ALTER TABLE "public"."book" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Records of book
@@ -207,7 +207,7 @@ CACHE 1
   "name" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
-ALTER TABLE "public"."role" OWNER TO "postgres";
+ALTER TABLE "public"."role" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Records of role
@@ -226,7 +226,7 @@ CREATE TABLE "public"."user_role" (
   "role_id" int4 NOT NULL
 )
 ;
-ALTER TABLE "public"."user_role" OWNER TO "postgres";
+ALTER TABLE "public"."user_role" OWNER TO "yogpknaxreaxvp";
 
 -- ----------------------------
 -- Records of user_role
