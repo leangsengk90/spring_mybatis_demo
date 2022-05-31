@@ -7,7 +7,7 @@ import com.kshrd.payload.response.BookRes;
 import java.util.List;
 
 public interface BookService {
-    List<Book> getAllBook();
+    List<Book> getAllBook(Integer page, Integer limit);
     Book getBookById(Integer id);
     BookRes addNewBook(BookReq bookReq);
     BookRes updateBookById(Integer id, BookReq bookReq);

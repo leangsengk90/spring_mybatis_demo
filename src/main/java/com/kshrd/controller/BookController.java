@@ -23,9 +23,10 @@ public class BookController {
     }
 
     @GetMapping
-    public List<Book> getAllBook(){
+    public List<Book> getAllBook(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit){
         List<Book> bookList= new ArrayList<>();
-        bookList = bookService.getAllBook();
+        bookList = bookService.getAllBook(page, limit);
         return bookList;
     }
 

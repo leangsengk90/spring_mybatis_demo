@@ -1,26 +1,30 @@
 package com.kshrd.service.serviceimp;
 
+import com.kshrd.configuration.EmailValidator;
 import com.kshrd.model.AppUser;
 import com.kshrd.payload.request.AppUserReq;
 import com.kshrd.payload.response.AppUserSignUpRes;
 import com.kshrd.repository.AppUserRepository;
 import com.kshrd.service.AppUserService;
+import com.kshrd.service.EmailService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 
 @Service
 public class AppUserServiceImp implements AppUserService {
 
     private final AppUserRepository appUserRepository;
     private final PasswordEncoder passwordEncoder;
+    private final EmailValidator emailValidator;
+    private final EmailService emailService;
 
-    public AppUserServiceImp(AppUserRepository appUserRepository, PasswordEncoder passwordEncoder) {
+    public AppUserServiceImp(AppUserRepository appUserRepository, PasswordEncoder passwordEncoder, EmailValidator emailValidator, EmailService emailService) {
         this.appUserRepository = appUserRepository;
         this.passwordEncoder = passwordEncoder;
+        this.emailValidator = emailValidator;
+        this.emailService = emailService;
     }
 
     @Override
@@ -33,6 +37,7 @@ public class AppUserServiceImp implements AppUserService {
 
     @Override
     public AppUserSignUpRes addNewUser(AppUserReq userReq) {
+        emailService.send("xg.group.info@gmail.com", "Hello");
         AppUserSignUpRes appUser = new AppUserSignUpRes();
         String encode = passwordEncoder.encode(userReq.getPassword());
         userReq.setPassword(encode);

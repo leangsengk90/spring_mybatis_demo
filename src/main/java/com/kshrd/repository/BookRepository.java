@@ -10,12 +10,12 @@ import java.util.List;
 
 @Mapper
 public interface BookRepository {
-    @Select("SELECT * FROM book")
+    @Select("SELECT * FROM book OFFSET #{page} LIMIT #{limit}")
     @Result(property = "importDate", column = "import_date")
     @Result(property = "author", column = "author_id",
         one = @One(select = "getAuthorById")
     )
-    List<Book> getAllBook();
+    List<Book> getAllBook(Integer page, Integer limit);
 
     @Select("SELECT * FROM book WHERE id = #{bookId}")
     @Result(property = "importDate", column = "import_date")
