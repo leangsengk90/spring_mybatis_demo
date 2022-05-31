@@ -27,7 +27,7 @@ public class UploadFileController {
         }catch (Exception ex){
             System.out.println("upLoadImage Error:" + ex.getMessage());
         }
-        return "Image uploaded successfully!";
+        return url;
     }
 
 }
