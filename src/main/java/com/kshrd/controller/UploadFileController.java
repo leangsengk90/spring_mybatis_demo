@@ -21,8 +21,9 @@ public class UploadFileController {
 
     @PostMapping("/upload")
     public String upLoadImage(@RequestParam("image") MultipartFile file){
+        String url = "";
         try{
-            String url = imageUrl + uploadFileService.saveFile(file);
+            url = imageUrl + uploadFileService.saveFile(file);
             System.out.println("url:" + url);
         }catch (Exception ex){
             System.out.println("upLoadImage Error:" + ex.getMessage());
