@@ -2,7 +2,7 @@ package com.kshrd.controller;
 
 import com.kshrd.payload.response.UploadImageRes;
 import com.kshrd.service.UploadFileService;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+//import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@SecurityRequirement(name = "uploadFileController") //for swagger
+//@SecurityRequirement(name = "uploadFileController") //for swagger openapi
 public class UploadFileController {
 
     private final UploadFileService uploadFileService;

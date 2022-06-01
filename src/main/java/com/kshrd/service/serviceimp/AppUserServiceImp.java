@@ -37,7 +37,8 @@ public class AppUserServiceImp implements AppUserService {
 
     @Override
     public AppUserSignUpRes addNewUser(AppUserReq userReq) {
-        emailService.send("xg.group.info@gmail.com", "Hello");
+        emailService.sendByMail("leangsengk90@gmail.com", "Hello");
+//        emailService.send("xg.group.info@gmail.com", "Hello");
         AppUserSignUpRes appUser = new AppUserSignUpRes();
         String encode = passwordEncoder.encode(userReq.getPassword());
         userReq.setPassword(encode);

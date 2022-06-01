@@ -20,7 +20,7 @@ public class EmailServiceImp implements EmailService {
 
     @Override
     @Async
-    public void send(String to, String email) {
+    public void sendByMail(String to, String email) {
         try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(

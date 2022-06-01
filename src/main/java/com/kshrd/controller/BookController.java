@@ -4,16 +4,16 @@ import com.kshrd.model.Book;
 import com.kshrd.payload.request.BookReq;
 import com.kshrd.payload.response.BookRes;
 import com.kshrd.service.BookService;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+//import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+//@CrossOrigin
 @RequestMapping("/book")
-@SecurityRequirement(name = "BookController") //for swagger
+//@SecurityRequirement(name = "BookController") //for swagger openapi
 public class BookController {
 
     private  final BookService bookService;
