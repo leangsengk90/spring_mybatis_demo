@@ -1,5 +1,7 @@
 package com.kshrd.controller;
 
+import com.kshrd.constant.StatusCodeEnum;
+import com.kshrd.exception.AppExceptionHandler;
 import com.kshrd.model.Book;
 import com.kshrd.payload.request.BookReq;
 import com.kshrd.payload.response.BookRes;
@@ -24,9 +26,13 @@ public class BookController {
 
     @GetMapping
     public List<Book> getAllBook(@RequestParam(value = "page", defaultValue = "1") Integer page,
-                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit){
+                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit) throws AppExceptionHandler {
         List<Book> bookList= new ArrayList<>();
         bookList = bookService.getAllBook(page, limit);
+
+//        if(true)
+//            throw new AppExceptionHandler(StatusCodeEnum.BAD_REQUEST.getNum(), StatusCodeEnum.BAD_REQUEST.getSms(), "/book");
+
         return bookList;
     }
 
@@ -56,6 +62,4 @@ public class BookController {
         bookRes = bookService.deleteBookById(id);
         return  bookRes;
     }
-
-
 }
