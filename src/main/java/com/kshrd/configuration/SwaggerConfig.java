@@ -24,7 +24,7 @@ import java.util.List;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfiguration {
+public class SwaggerConfig {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Bean

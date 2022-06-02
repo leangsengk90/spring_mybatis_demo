@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
+
 public class ResponseRes<T> {
 
     private Integer statusCode;

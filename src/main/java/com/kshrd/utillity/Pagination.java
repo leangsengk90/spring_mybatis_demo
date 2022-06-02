@@ -9,22 +9,29 @@ public class Pagination {
     private int previousPage;
     private int totalCount;
     private int totalPages;
-    private int pageToShow;
-    private int startPage;
-    private int endPage;
+    private int pageToShow; //pageToShow = 5; startPage 1 & endPage 5, 3 -> 7,...
+    private int startPage; //show start from page with PageToShow;
+    private int endPage; //show the end page with pageToShow;
 
     @JsonIgnore
     private int offset; // starting points
 
     public Pagination() {
-        this(1, 5, 0, 0, 5);
+        this(1, 10,  0, 5);
     }
 
-    public Pagination(int page, int limit, int totalCount, int totalPages, int pagesToShow) {
+    public Pagination(int page, int limit, int totalCount) {
+        this.page = page;
+        this.limit = limit;
+        this.totalCount = totalCount;
+    }
+
+    public Pagination(int page, int limit, int totalCount, int pagesToShow) {
         this.page = page;
         this.limit = limit;
         this.totalCount = totalCount;
         this.pageToShow = pagesToShow;
+        setTotalCount(totalCount);
     }
 
     // getter & setter
@@ -55,7 +62,31 @@ public class Pagination {
 
     public int getPreviousPage(){return (int) (page<=1? 1 : page-1);}
 
-    public int getPageToShow(){return pageToShow;};
+    public int getPageToShow(){
+         return pageToShow;
+//        return pageToShow > totalPages ? totalPages : pageToShow; //@Seng added;
+    };
+
+    //@seng added
+    public void setPageToShow(int pageToShow) {
+        this.pageToShow = pageToShow;
+    }
+
+    public void setStartPage(int startPage) {
+        this.startPage = startPage;
+    }
+
+    public int getStartPage() {
+        return startPage;
+    }
+
+    public void setEndPage(int endPage) {
+        this.endPage = endPage;
+    }
+
+    public int getEndPage() {
+        return endPage;
+    }
 
     public int getTotalCount(){ return totalCount; }
 
@@ -68,26 +99,46 @@ public class Pagination {
         int halfPagesToShow = pageToShow/2;
 
         if (totalPages <= pageToShow){
-            startPage = 1;
-            endPage = totalPages;
+//            startPage = 1;
+            setStartPage(1);
+//            endPage = totalPages;
+            setEndPage(totalPages);
         }else if(page - halfPagesToShow <= 0){
-            startPage = 1 ;
-            endPage = pageToShow;
+//            startPage = 1 ;
+            setStartPage(1);
+//            endPage = pageToShow;
+            setEndPage(pageToShow);
         }else if (page + halfPagesToShow == totalPages){
-            startPage=page - halfPagesToShow + 1;// I added my own
-            endPage = totalPages;
+//            startPage=page - halfPagesToShow + 1;// I added my own
+            setStartPage(page - halfPagesToShow + 1);
+//            endPage = totalPages;
+            setEndPage(totalPages);
         }else  if (page + halfPagesToShow > totalPages){
-            startPage = totalPages - pageToShow + 1;
-            endPage = totalPages;
+//            startPage = totalPages - pageToShow + 1;
+            setStartPage(totalPages - pageToShow + 1);
+//            endPage = totalPages;
+            setEndPage(totalPages);
         }else {
-            startPage = page - halfPagesToShow;
-            endPage = page + halfPagesToShow;
+//            startPage = page - halfPagesToShow;
+            setStartPage(page - halfPagesToShow);
+//            endPage = page + halfPagesToShow;
+            setEndPage(page + halfPagesToShow);
         }
     }
+
     @Override
     public String toString() {
-        return "Paging [page=" + page + ", limit=" + limit + ", totalCount=" + totalCount + ", totalPages=" + totalPages
-                + ", nextPage=" + nextPage + ", previousPage=" + previousPage + ", offset=" + offset + "]";
+        return "Pagination{" +
+                "page=" + page +
+                ", limit=" + limit +
+                ", nextPage=" + nextPage +
+                ", previousPage=" + previousPage +
+                ", totalCount=" + totalCount +
+                ", totalPages=" + totalPages +
+                ", pageToShow=" + pageToShow +
+                ", startPage=" + startPage +
+                ", endPage=" + endPage +
+                ", offset=" + offset +
+                '}';
     }
-
 }

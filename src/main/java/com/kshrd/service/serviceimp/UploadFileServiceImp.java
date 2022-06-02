@@ -63,7 +63,7 @@ public class UploadFileServiceImp implements UploadFileService {
 //    }
 
     @Override
-    public List<String> saveFile2(MultipartFile[] fileList) throws IOException {
+    public List<String> saveMultiFiles(MultipartFile[] fileList) throws IOException {
         List urlList = new ArrayList();
 
         for(MultipartFile multipartFile: fileList){

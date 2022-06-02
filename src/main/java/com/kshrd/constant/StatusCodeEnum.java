@@ -30,7 +30,7 @@ package com.kshrd.constant;
         504 GATEWAY TIMEOUT :
  **/
 public enum StatusCodeEnum {
-    OK(200, "Transaction is successfully!"),
+    OK(200, "Data is retrieved successfully!"),
     CRETAED(201, "Data is added successfully!"),
     NO_CONTENT(204, "Data is manipulated successfully!"),
     NOT_MODIFIED(304, "Nothing is modified!"),
