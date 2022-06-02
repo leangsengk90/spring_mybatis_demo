@@ -49,10 +49,10 @@ public class SwaggerConfig {
                 "Mybatis Demo",
                 "JWT, JavaMailServer, Exception Handler, Upload Images, Pagination...",
                 "1.0",
-                "Happy Coding!",
+                "https://kshrd.com.kh/about-us",
                 new Contact("KAO LEANGSENG", "https://gitlab.com/leangsengk90/spring_mybatis.git","leangsengk90@gmail.com")//your name, url , email
                 ,"KSHRD License",
-                "www.kshrd.com.kh",
+                "https://kshrd.com.kh",
                 Collections.emptyList()
         );
 
