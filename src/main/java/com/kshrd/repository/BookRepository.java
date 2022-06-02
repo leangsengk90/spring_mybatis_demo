@@ -29,6 +29,10 @@ public interface BookRepository {
 
     //  Method 2;
     @SelectProvider(type = BookProvider.class, method = "getBookById")
+    @Result(property = "importDate", column = "import_date")
+    @Result(property = "author", column = "author_id",
+            one = @One(select = "com.kshrd.repository.BookRepository.getAuthorById")
+    )
     Book getBookById(Integer bookId);
 
     //For testing: This methods should be in AuthorRepository
