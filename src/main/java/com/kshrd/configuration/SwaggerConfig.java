@@ -47,12 +47,12 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfo(
                 "Mybatis Demo",
-                "I dun know what I am doing , but I know that I need this for the final project",
+                "JWT, JavaMailServer, Exception Handler, Upload Images, Pagination...",
                 "1.0",
-                "Free to use as long as you pays",
-                new Contact("Satoshi Nakeomoto","https://www.youtube.com/watch?v=on9BTX6dHN0&t=839s","keokay888@gmail.com")//your name, url , email
-                ,"BTB License ",
-                "BTB API LicenseURL",
+                "Happy Coding!",
+                new Contact("KAO LEANGSENG", "https://gitlab.com/leangsengk90/spring_mybatis.git","leangsengk90@gmail.com")//your name, url , email
+                ,"KSHRD License",
+                "www.kshrd.com.kh",
                 Collections.emptyList()
         );
 

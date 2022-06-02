@@ -43,7 +43,7 @@ public enum StatusCodeEnum {
     UNSUPPORTED_MEDIA_TYPE(415, "Media is not supported!"),
     INTERNAL_SERVER_ERROR(500, "Internal server error!"),
     SERVICE_UNAVAILABLE(503, "Service is unavailable!"),
-    GATWAY_TIMEOUT(504, "Gatway is timeout!");
+    GATWAY_TIMEOUT(504, "Gateway is timeout!");
 
     private int num;
     private String sms;

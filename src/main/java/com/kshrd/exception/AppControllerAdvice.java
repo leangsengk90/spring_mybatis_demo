@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class AppControllerAdvice {
 
     @ExceptionHandler(value = {AppExceptionHandler.class})
-    public ResponseEntity<Object> AppException(AppExceptionHandler ex, WebRequest request){
+    public ResponseEntity<Object> exceptionHandler(AppExceptionHandler ex, WebRequest request){
 
         ResponseRes responseRes = new ResponseRes<>();
 

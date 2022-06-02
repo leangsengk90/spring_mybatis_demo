@@ -53,4 +53,10 @@ public class BookServiceImp implements BookService {
         bookRes = bookRepository.deleteBookById(id);
         return bookRes;
     }
+
+    @Override
+    public Integer countBook() {
+        Integer count = bookRepository.countBook();
+        return count;
+    }
 }

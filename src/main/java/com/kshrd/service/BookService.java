@@ -12,4 +12,5 @@ public interface BookService {
     BookRes addNewBook(BookReq bookReq);
     BookRes updateBookById(Integer id, BookReq bookReq);
     BookRes deleteBookById(Integer id);
+    Integer countBook();
 }

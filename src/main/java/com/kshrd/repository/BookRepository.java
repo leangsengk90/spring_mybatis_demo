@@ -45,4 +45,7 @@ public interface BookRepository {
     @Result(property = "importDate", column = "import_date")
     @Result(property = "authorId", column = "author_id")
     BookRes deleteBookById(Integer id);
+
+    @Select("SELECT count(*) FROM book")
+    Integer countBook();
 }

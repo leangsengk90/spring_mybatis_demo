@@ -8,4 +8,5 @@ import java.util.List;
 public interface UploadFileService {
     public String saveFile(MultipartFile file) throws IOException;
     public List<String> saveMultiFiles(MultipartFile[] fileList) throws IOException;
+
 }

@@ -16,14 +16,16 @@ public class Pagination {
     @JsonIgnore
     private int offset; // starting points
 
-    public Pagination() {
-        this(1, 10,  0, 5);
-    }
+//    public Pagination() {
+//        this(1, 10,  0, 5);
+//    }
 
     public Pagination(int page, int limit, int totalCount) {
         this.page = page;
         this.limit = limit;
         this.totalCount = totalCount;
+        this.pageToShow = 5;
+        setTotalCount(totalCount);
     }
 
     public Pagination(int page, int limit, int totalCount, int pagesToShow) {

@@ -38,7 +38,7 @@ public class BookController {
         Pagination pagination = new Pagination(
                 page,
                 limit,
-                15
+                bookService.countBook()
         );
 
 //        Pagination pagination = new Pagination();
