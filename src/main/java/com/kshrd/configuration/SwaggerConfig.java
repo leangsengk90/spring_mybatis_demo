@@ -36,7 +36,7 @@ public class SwaggerConfig {
                 .securityContexts(Collections.singletonList(securityContext()))
                 .securitySchemes(Collections.singletonList(apiKey()))
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.kshrd.controller")) // with this we can specific why package to the api for the project.
+                .apis(RequestHandlerSelectors.basePackage("com.kshrd")) // with this we can specific why package to the api for the project.
                 .paths(PathSelectors.any())// block the certain paths ....
                 .build();
     }

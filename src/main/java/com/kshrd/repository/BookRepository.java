@@ -4,6 +4,7 @@ import com.kshrd.model.Author;
 import com.kshrd.model.Book;
 import com.kshrd.payload.request.BookReq;
 import com.kshrd.payload.response.BookRes;
+import com.kshrd.repository.provider.BookProvider;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -17,11 +18,17 @@ public interface BookRepository {
     )
     List<Book> getAllBook(Integer page, Integer limit);
 
-    @Select("SELECT * FROM book WHERE id = #{bookId}")
-    @Result(property = "importDate", column = "import_date")
-    @Result(property = "author", column = "author_id",
-            one = @One(select = "com.kshrd.repository.BookRepository.getAuthorById")
-    )
+
+    //  Method 1;
+//    @Select("SELECT * FROM book WHERE id = #{bookId}")
+//    @Result(property = "importDate", column = "import_date")
+//    @Result(property = "author", column = "author_id",
+//            one = @One(select = "com.kshrd.repository.BookRepository.getAuthorById")
+//    )
+//    Book getBookById(Integer bookId);
+
+    //  Method 2;
+    @SelectProvider(type = BookProvider.class, method = "getBookById")
     Book getBookById(Integer bookId);
 
     //For testing: This methods should be in AuthorRepository
