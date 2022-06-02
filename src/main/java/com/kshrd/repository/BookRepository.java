@@ -9,8 +9,14 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+/**
+ * Mybatis: @Results, @One, @Many...
+ https://medium.com/@hsvdahiya/mybatis-annotations-result-mapping-spring-79944ff74b84#:~:text=%40Results%20and%20%40Result&text=%40Results%20%E2%80%94%20%E2%80%9CA%20list%20of,map%20the%20results%20in%20MyBatis.
+ */
+
 @Mapper
 public interface BookRepository {
+
     @Select("SELECT * FROM book OFFSET #{page} LIMIT #{limit}")
     @Result(property = "importDate", column = "import_date")
     @Result(property = "author", column = "author_id",
@@ -41,20 +47,20 @@ public interface BookRepository {
     Author getAuthorById(Integer authorId);
 
     @Select("INSERT INTO book(name, import_date, author_id) VALUES(#{book.name}, #{book.importDate}, #{book.authorId}) RETURNING *")
-    @Result(property = "importDate", column = "import_date")
-    @Result(property = "authorId", column = "author_id")
+    @Results(id = "bookResults", value = {
+            @Result(property = "importDate", column = "import_date"),
+            @Result(property = "authorId", column = "author_id")
+    })
     BookRes addNewBook(@Param("book") BookReq bookReq);
 
     @Select("UPDATE book SET name=#{book.name}, " +
             "import_date=#{book.importDate}, author_id=#{book.authorId}" +
             "WHERE id=#{bookId} RETURNING *")
-    @Result(property = "importDate", column = "import_date")
-    @Result(property = "authorId", column = "author_id")
+    @ResultMap("bookResults")
     BookRes updateBookById(@Param("bookId") Integer id, @Param("book") BookReq bookReq);
 
     @Select("DELETE FROM book WHERE id=#{id} RETURNING *")
-    @Result(property = "importDate", column = "import_date")
-    @Result(property = "authorId", column = "author_id")
+    @ResultMap("bookResults")
     BookRes deleteBookById(Integer id);
 
     @Select("SELECT count(*) FROM book")

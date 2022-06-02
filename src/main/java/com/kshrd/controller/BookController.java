@@ -32,8 +32,11 @@ public class BookController {
     @GetMapping
     public ResponseEntity<Object> getAllBook(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit) throws AppExceptionHandler {
+        if(page <= 0) page = 1;
+        Integer newPage = (page - 1) * limit;
+
         List<Book> bookList= new ArrayList<>();
-        bookList = bookService.getAllBook(page, limit);
+        bookList = bookService.getAllBook(newPage, limit);
 
         Pagination pagination = new Pagination(
                 page,

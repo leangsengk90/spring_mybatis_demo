@@ -21,8 +21,7 @@ public class BookServiceImp implements BookService {
     @Override
     public List<Book> getAllBook(Integer page, Integer limit) {
         List<Book> bookList = new ArrayList<>();
-        Integer newPage = (page - 1) * limit;
-        bookList = bookRepository.getAllBook(newPage, limit);
+        bookList = bookRepository.getAllBook(page, limit);
         return bookList;
     }
 
