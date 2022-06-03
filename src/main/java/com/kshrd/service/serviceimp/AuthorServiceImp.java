@@ -21,6 +21,7 @@ public class AuthorServiceImp implements AuthorService {
     public List<Author> getAllAuthor() {
         List<Author> authorList = new ArrayList<>();
         authorList = authorRepository.getAllAuthor();
+        System.out.println("AUTHOR: "+authorList);
         return authorList;
     }
 }

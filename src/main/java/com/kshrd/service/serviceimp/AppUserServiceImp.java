@@ -37,6 +37,7 @@ public class AppUserServiceImp implements AppUserService {
 
     @Override
     public AppUserSignUpRes addNewUser(AppUserReq userReq) {
+        //Validate email before sending
         boolean isEmailValid = emailValidator.test(userReq.getEmail());
         if (!isEmailValid) throw new IllegalStateException("Email is invalid!");
 
