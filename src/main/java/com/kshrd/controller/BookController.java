@@ -32,6 +32,7 @@ public class BookController {
     @GetMapping
     public ResponseEntity<Object> getAllBook(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit) throws AppExceptionHandler {
+        //Validate page
         if(page <= 0) page = 1;
         Integer newPage = (page - 1) * limit;
 

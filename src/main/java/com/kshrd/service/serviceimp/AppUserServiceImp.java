@@ -37,7 +37,10 @@ public class AppUserServiceImp implements AppUserService {
 
     @Override
     public AppUserSignUpRes addNewUser(AppUserReq userReq) {
-        emailService.sendByMail("leangsengk90@gmail.com", "Hello");
+        boolean isEmailValid = emailValidator.test(userReq.getEmail());
+        if (!isEmailValid) throw new IllegalStateException("Email is invalid!");
+
+        emailService.sendByMail("leangsengk90@gmail.com", "Hello bro!, You're awesome!");
 //        emailService.send("xg.group.info@gmail.com", "Hello");
         AppUserSignUpRes appUser = new AppUserSignUpRes();
         String encode = passwordEncoder.encode(userReq.getPassword());
