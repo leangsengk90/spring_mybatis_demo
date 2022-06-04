@@ -11,6 +11,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.time.LocalDateTime;
+
 //For swagger openapi
 //@OpenAPIDefinition(info = @Info(title = "MyBatis Demo API",
 //		description = "Controller, Model, Payload, Repository, Service",
@@ -26,7 +28,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class MybatisdemoApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(MybatisdemoApplication.class, args);
+		System.out.println("NOW: " + LocalDateTime.now());
 	}
 
 }

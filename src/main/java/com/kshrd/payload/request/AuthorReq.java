@@ -1,25 +1,20 @@
-package com.kshrd.model;
+package com.kshrd.payload.request;
 
-import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
 
-public class Author {
-    private int id;
+public class AuthorReq {
+
     private String name;
     private String[] email;
     private JSONObject address;
     private LocalDateTime createDate;
 
-    public Author() {
+    public AuthorReq() {
     }
 
-    public Author(int id, String name, String[] email, JSONObject address, LocalDateTime createDate) {
-        this.id = id;
+    public AuthorReq(String name, String[] email, JSONObject address, LocalDateTime createDate) {
         this.name = name;
         this.email = email;
         this.address = address;
@@ -32,14 +27,6 @@ public class Author {
 
     public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -64,16 +51,5 @@ public class Author {
 
     public void setAddress(JSONObject address) {
         this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email=" + Arrays.toString(email) +
-                ", address=" + address +
-                ", createDate=" + createDate +
-                '}';
     }
 }

@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                 .antMatchers( "/book/**")
                 .hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.GET,"/author")
+                .antMatchers("/author")
                 .hasAnyAuthority("ROLE_USER")
                 .anyRequest()
                 .authenticated().and()
