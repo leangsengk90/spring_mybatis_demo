@@ -1,11 +1,17 @@
 package com.kshrd.repository;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import com.kshrd.model.Author;
 import com.kshrd.model.Book;
 import com.kshrd.payload.request.BookReq;
 import com.kshrd.payload.response.BookRes;
 import com.kshrd.repository.provider.BookProvider;
+import com.kshrd.utillity.JsonObjectTypeHandler;
+import com.kshrd.utillity.ListTypeHandler;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.type.JdbcType;
 
 import java.util.List;
 
@@ -44,6 +50,10 @@ public interface BookRepository {
     //For testing: This methods should be in AuthorRepository
     //if this function in another repo(AuthorRepository) => one = @One(select = "com.kshrd.repository.AuthorRepository.getAuthorById")
     @Select("SELECT * FROM author WHERE id = #{authorId}")
+    @Results(id = "authorResults", value = {
+            @Result(property = "email", column = "email" ,typeHandler = ListTypeHandler.class),
+            @Result(property = "address", column = "address", typeHandler = JsonObjectTypeHandler.class)
+    })
     Author getAuthorById(Integer authorId);
 
     @Select("INSERT INTO book(name, import_date, author_id) VALUES(#{book.name}, #{book.importDate}, #{book.authorId}) RETURNING *")

@@ -1,6 +1,7 @@
 package com.kshrd.model;
 
-
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import java.util.Arrays;
@@ -10,12 +11,12 @@ public class Author {
     private int id;
     private String name;
     private String[] email;
-    private Object address;
+    private JSONObject address;
 
     public Author() {
     }
 
-    public Author(int id, String name, String[] email, Object address) {
+    public Author(int id, String name, String[] email, JSONObject address) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -46,11 +47,11 @@ public class Author {
         this.email = email;
     }
 
-    public Object getAddress() {
+    public JSONObject getAddress() {
         return address;
     }
 
-    public void setAddress(Object address) {
+    public void setAddress(JSONObject address) {
         this.address = address;
     }
 
